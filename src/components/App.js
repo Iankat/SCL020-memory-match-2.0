@@ -3,6 +3,7 @@ import colors from "../data/colors/colors.js";
 import animals from "../data/animals/animals.js";
 import verbs from "../data/verbs/verbs.js";
 import shuffle from "./shuffle.js";
+import {playGame, showName} from "./DOMfunctions.js";
 
 const colorssection = document.getElementById("colorssection");
 const animalssection = document.getElementById("animalssection");
@@ -21,20 +22,12 @@ const goToStart = document.getElementById("goToStart");
 
 //Botón jugar obtiene valor para próxima página y dirige a la siguiente página
 if (buttonPlay) {
-  document.getElementById("play").onclick = function () {
-    location.href = "start.html";
-    let name = document.getElementById("name").value;
-    localStorage.setItem("name", name);
-  };
+  playGame();
 }
 
 // Muestra el valor de la página anterior
 if (getUserName) {
-  window.onload = function () {
-    document.getElementById("hi").innerHTML = `¡Hola ${localStorage.getItem(
-      "name"
-    )}!`;
-  };
+  showName();
 }
 
 // Dirige al Memory de Colores
